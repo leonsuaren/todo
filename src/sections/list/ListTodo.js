@@ -1,26 +1,51 @@
-import React from 'react';
-
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import React, { useState } from 'react';
 
 import { ListItem } from '../../components/list-item';
 
-import { ListTodoStyled } from './styled';
+import { ListTodoStyled, TodoCard } from './styled';
 
 export const ListTodo = ({children}) => {
+  const [ todoList, setTodoList ] = useState([
+    {
+      description: 'Learn React',
+      active: false,
+      complited: false
+    },
+    {
+      description: 'Learn Mongodb',
+      active: false,
+      complited: false
+    },
+    {
+      description: 'Learn Express',
+      active: false,
+      complited: false
+    },
+    {
+      description: 'Learn Node',
+      active: false,
+      complited: false
+    },
+  ]);
+
+  const handleOnDelete = (index) => {
+    console.log('hola', todoList);
+    let tempTodoList = [...todoList];
+    tempTodoList.splice(index, 1);
+    setTodoList(tempTodoList);
+  }
+
   return(
     <ListTodoStyled>
-      <Card>
-        <CardContent>
-          <ListItem></ListItem>
-        </CardContent>
-        <CardActions>
-          <Button>click</Button>
-        </CardActions>
-      </Card>
+      <TodoCard >
+          {
+            todoList.map((item, key) => {
+              return (
+                <ListItem key={key} active={item.active} complited={item.complited} index={key} onClick={handleOnDelete}>{item.description}</ListItem>
+              )
+            })
+          }
+      </TodoCard>
     </ListTodoStyled>
   )
 }
