@@ -6,6 +6,6 @@ export const PageLayoutStyle = styled.div`
   grid-template-rows: 40% 60%;
   grid-template-areas: 
     "menu editTodo"
-    "menu viewTodo"
+    "menu listTodo"
   ;
 `;
