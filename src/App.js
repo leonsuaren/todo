@@ -1,15 +1,15 @@
 import './App.css';
 import { PageLayout } from './layout/';
 import { Menu } from './sections/menu';
-import { EditTodo } from './sections/edit';
+import { TodoHeader } from './sections/todo-header';
 import { ListTodo } from './sections/list';
 
 function App() {
   return (
     <PageLayout>
-    <Menu />
-    <EditTodo />
-    <ListTodo />
+      <Menu />
+      <TodoHeader />
+      <ListTodo />
     </PageLayout>
   );
 }

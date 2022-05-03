@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const EditTodoStyled = styled.div`
+export const TodoHeaderWrapper = styled.div`
   display: grid;
   margin: 0;
   justify-content: center;
