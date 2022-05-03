@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ListTodoStyled = styled.div`
   display: grid;
   grid-template-rows: 10% 90%;
-  margin: 0;
+  margin: 50px 0;
   justify-content: center;
   align-items: start;
   grid-area: listTodo;

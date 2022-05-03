@@ -14,7 +14,7 @@ export const Form = styled.form`
   grid-template-columns: 90% 10%;
   align-items: center;
   justify-items: center;
-  width: 600px;
+  width: 800px;
   height: 70px;
   margin: 0;
   padding: 1px;

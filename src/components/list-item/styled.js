@@ -6,7 +6,7 @@ export const ListItemWrapper = styled.div`
   grid-template-columns: 10% 80% 10%;
   align-items: center;
   justify-items: center;
-  width: 600px;
+  width: 800px;
   height: 70px;
   margin: 0;
   padding: 0;
