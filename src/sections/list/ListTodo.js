@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { ListItem } from '../../components/list-item';
+import { ListForm } from '../../components/list-form';
 
 import { ListTodoStyled, TodoCard } from './styled';
 
@@ -35,8 +36,14 @@ export const ListTodo = ({children}) => {
     setTodoList(tempTodoList);
   }
 
+  const handleOnAddTodo = (description) => {
+    const newTodoList = [ ...todoList, { description: description, active: false, complited: false } ];
+    setTodoList(newTodoList);
+  }
+
   return(
     <ListTodoStyled>
+      <ListForm addTodo={handleOnAddTodo}/>
       <TodoCard >
           {
             todoList.map((item, key) => {

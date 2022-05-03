@@ -14,6 +14,7 @@ export const ListItemWrapper = styled.div`
   &:hover {
     background: #c8dcf7;
   }
+  border: 1px solid #CCCCCC;
 `;
 
 export const DeleteTodoButton = styled.button`
@@ -29,6 +30,7 @@ export const AiOutlineDeleteStyled = styled(AiOutlineDelete)`
   &:hover {
     font-size: 2rem;
   }
+  color: #ff0100;
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -38,4 +40,8 @@ export const DescriptionWrapper = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+`;
+
+export const Span = styled.span`
+  text-decoration: ${p => p.complited ? 'line-through' : ''};
 `;
