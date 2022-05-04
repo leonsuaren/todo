@@ -18,15 +18,20 @@ export const ListTodo = ({children}) => {
     })
   }, []);
 
-  const handleOnDelete = (index) => {
-    console.log('hola', todoList);
+  const handleOnDelete = async ( _id, key ) => {
     let tempTodoList = [...todoList];
-    tempTodoList.splice(index, 1);
+    tempTodoList.splice(key, 1);
+    try {
+      const { data } = await axios.post('http://localhost:3000/api/todo/delete-todo',  { _id } );
+    } catch (error) {
+      console.log(error);
+    }
     setTodoList(tempTodoList);
   }
 
-  const handleOnAddTodo = (description) => {
+  const handleOnAddTodo = async (description) => {
     const newTodoList = [ ...todoList, { description: description, active: false, complited: false } ];
+    await axios.post('http://localhost:3000/api/todo/create', {description: description, active: false, completed: false});
     setTodoList(newTodoList);
   }
 
@@ -37,7 +42,7 @@ export const ListTodo = ({children}) => {
           {
             todoList.map((item, key) => {
               return (
-                <ListItem key={key} active={item.active} complited={item.complited} index={key} onClick={handleOnDelete}>{item.description}</ListItem>
+                <ListItem key={key} active={item.active} complited={item.complited} _id={item._id} index={key} onClick={() => {handleOnDelete(item._id, key)}}>{item.description}</ListItem>
               )
             })
           }

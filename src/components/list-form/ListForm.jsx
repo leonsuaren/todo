@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { Form, FormCard, AddTodoButton, AiOutlinePlusStyled, InputStyled } from './styled';
 
 export const ListForm = ({addTodo}) => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
     if (!value) return;
     addTodo(value);
