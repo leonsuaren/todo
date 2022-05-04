@@ -5,7 +5,7 @@ import Checkbox from '@mui/material/Checkbox';
 
 import { ListItemWrapper, DeleteTodoButton, AiOutlineDeleteStyled, DescriptionWrapper, Span } from './styled';
 
-export const ListItem = ({ children, active, complited, ...props }) => {
+export const ListItem = ({ children, active, complited, deleteTodoItem, ...props }) => {
   const [isActive, setIsActive] = useState(active);
 
   const handleIsActive = () => {
@@ -13,7 +13,7 @@ export const ListItem = ({ children, active, complited, ...props }) => {
   }
 
   return (
-    <ListItemWrapper active={isActive}>
+    <ListItemWrapper active={isActive} {...props}>
       <Checkbox/>
       <DescriptionWrapper onClick={handleIsActive}>
         <Span complited={complited}>
@@ -22,7 +22,7 @@ export const ListItem = ({ children, active, complited, ...props }) => {
           </Typography>
         </Span>
       </DescriptionWrapper>
-      <DeleteTodoButton {...props}><AiOutlineDeleteStyled /></DeleteTodoButton>
+      <DeleteTodoButton onClick={deleteTodoItem} {...props}><AiOutlineDeleteStyled /></DeleteTodoButton>
     </ListItemWrapper>
   )
 }

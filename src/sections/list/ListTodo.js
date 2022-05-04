@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
+import anime from 'animejs';
 
 import { ListItem } from '../../components/list-item';
 import { ListForm } from '../../components/list-form';
@@ -12,7 +13,7 @@ export const ListTodo = ({children}) => {
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/todo/todo-list').then((response) => {
-      setTodoList(response.data.todoList)
+      setTodoList(response.data.todoList);
     }).catch((error) => {
       console.log(error)
     })
@@ -23,6 +24,7 @@ export const ListTodo = ({children}) => {
     tempTodoList.splice(key, 1);
     try {
       const { data } = await axios.post('http://localhost:3000/api/todo/delete-todo',  { _id } );
+      console.log(data)
     } catch (error) {
       console.log(error);
     }
@@ -35,6 +37,14 @@ export const ListTodo = ({children}) => {
     setTodoList(newTodoList);
   }
 
+  const handleOnActiveTodo = async (_id) => {
+    try {
+      const { data } = await axios.put('http://localhost:3000/api/todo/active-todo', { _id });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return(
     <ListTodoStyled>
       <ListForm addTodo={handleOnAddTodo}/>
@@ -42,7 +52,7 @@ export const ListTodo = ({children}) => {
           {
             todoList.map((item, key) => {
               return (
-                <ListItem key={key} active={item.active} complited={item.complited} _id={item._id} index={key} onClick={() => {handleOnDelete(item._id, key)}}>{item.description}</ListItem>
+                <ListItem onClick={() => handleOnActiveTodo(item._id)} active={item.active} key={key} complited={item.complited} _id={item._id} index={key} deleteTodoItem={() => {handleOnDelete(item._id, key)}}>{item.description}</ListItem>
               )
             })
           }
