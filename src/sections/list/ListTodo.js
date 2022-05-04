@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import axios from 'axios';
 
 import { ListItem } from '../../components/list-item';
 import { ListForm } from '../../components/list-form';
@@ -6,28 +8,15 @@ import { ListForm } from '../../components/list-form';
 import { ListTodoStyled, TodoCard } from './styled';
 
 export const ListTodo = ({children}) => {
-  const [ todoList, setTodoList ] = useState([
-    {
-      description: 'Learn React',
-      active: false,
-      complited: false
-    },
-    {
-      description: 'Learn Mongodb',
-      active: false,
-      complited: false
-    },
-    {
-      description: 'Learn Express',
-      active: false,
-      complited: false
-    },
-    {
-      description: 'Learn Node',
-      active: false,
-      complited: false
-    },
-  ]);
+  const [ todoList, setTodoList ] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/todo/todo-list').then((response) => {
+      setTodoList(response.data.todoList)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }, []);
 
   const handleOnDelete = (index) => {
     console.log('hola', todoList);
