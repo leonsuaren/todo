@@ -8,4 +8,5 @@ export const PageLayoutStyle = styled.div`
     "menu editTodo"
     "menu listTodo"
   ;
+  margin: 0;
 `;
