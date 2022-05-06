@@ -22,7 +22,7 @@ export const ListItem = ({ children, active, complited, deleteTodoItem, ...props
           </Typography>
         </Span>
       </DescriptionWrapper>
-      <DeleteTodoButton onClick={deleteTodoItem} {...props}><AiOutlineDeleteStyled /></DeleteTodoButton>
+      <DeleteTodoButton onClick={deleteTodoItem}><AiOutlineDeleteStyled /></DeleteTodoButton>
     </ListItemWrapper>
   )
 }

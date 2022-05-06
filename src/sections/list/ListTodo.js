@@ -22,6 +22,7 @@ export const ListTodo = ({children}) => {
   const handleOnDelete = async ( _id, key ) => {
     let tempTodoList = [...todoList];
     tempTodoList.splice(key, 1);
+    console.log(_id, key);
     try {
       const { data } = await axios.post('http://localhost:3000/api/todo/delete-todo',  { _id } );
       console.log(data)
