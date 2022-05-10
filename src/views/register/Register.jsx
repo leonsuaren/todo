@@ -18,8 +18,7 @@ export const Register = () => {
     },
     onSubmit: async values => {
       await axios.post('http://localhost:3000/api/auth/register', { username: values.username, email: values.email, password: values.password }).then((res) => {
-        localStorage.setItem('username', res.data.user.username);
-        navigate('/')
+        navigate('/login')
       }).catch((error) => {
         console.log(error);
       })
