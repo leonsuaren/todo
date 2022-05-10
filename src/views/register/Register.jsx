@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useFormik } from 'formik';
+import axios from 'axios';
 
 import { RegisterWrapper } from './styled';
 
 export const Register = () => {
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -13,8 +16,13 @@ export const Register = () => {
       password: '',
       confirmPassword: ''
     },
-    onSubmit: values => {
-      console.log(values);
+    onSubmit: async values => {
+      await axios.post('http://localhost:3000/api/auth/register', { username: values.username, email: values.email, password: values.password }).then((res) => {
+        localStorage.setItem('username', res.data.user.username);
+        navigate('/')
+      }).catch((error) => {
+        console.log(error);
+      })
     }
   });
 
