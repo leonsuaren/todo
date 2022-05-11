@@ -10,9 +10,10 @@ import { ListTodoStyled, TodoCard } from './styled';
 
 export const ListTodo = ({children}) => {
   const [ todoList, setTodoList ] = useState([]);
+  const email = localStorage.getItem('email');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/todo/todo-list').then((response) => {
+    axios.post('http://localhost:3000/api/todo/todo-list', { email }).then((response) => {
       setTodoList(response.data.todoList);
     }).catch((error) => {
       console.log(error)
@@ -34,7 +35,7 @@ export const ListTodo = ({children}) => {
 
   const handleOnAddTodo = async (description) => {
     const newTodoList = [ ...todoList, { description: description, active: false, complited: false } ];
-    await axios.post('http://localhost:3000/api/todo/create', {description: description, active: false, completed: false});
+    await axios.post('http://localhost:3000/api/todo/create', {description: description, active: false, completed: false, email: email});
     setTodoList(newTodoList);
   }
 
