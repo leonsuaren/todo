@@ -15,6 +15,7 @@ export const TodoHeader = () => {
 
   const handleOnLogout = () => {
     localStorage.removeItem('username');
+    localStorage.removeItem('email');
     navigate('/login');
   }
 

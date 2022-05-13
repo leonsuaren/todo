@@ -13,7 +13,7 @@ export const ListTodo = ({children}) => {
   const email = localStorage.getItem('email');
 
   useEffect(() => {
-    axios.post('http://localhost:3000/api/todo/todo-list', { email }).then((response) => {
+    axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/todo/todo-list`, { email }).then((response) => {
       setTodoList(response.data.todoList);
     }).catch((error) => {
       console.log(error)
@@ -25,7 +25,7 @@ export const ListTodo = ({children}) => {
     tempTodoList.splice(key, 1);
     console.log(_id, key);
     try {
-      const { data } = await axios.post('http://localhost:3000/api/todo/delete-todo',  { _id } );
+      const { data } = await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/todo/delete-todo`,  { _id } );
       console.log(data)
     } catch (error) {
       console.log(error);
@@ -35,13 +35,13 @@ export const ListTodo = ({children}) => {
 
   const handleOnAddTodo = async (description) => {
     const newTodoList = [ ...todoList, { description: description, active: false, complited: false } ];
-    await axios.post('http://localhost:3000/api/todo/create', {description: description, active: false, completed: false, email: email});
+    await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/todo/create`, {description: description, active: false, completed: false, email: email});
     setTodoList(newTodoList);
   }
 
   const handleOnActiveTodo = async (_id) => {
     try {
-      const { data } = await axios.put('http://localhost:3000/api/todo/active-todo', { _id });
+      const { data } = await axios.put(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/todo/active-todo`, { _id });
     } catch (error) {
       console.log(error);
     }

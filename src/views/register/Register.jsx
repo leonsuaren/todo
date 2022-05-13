@@ -17,7 +17,7 @@ export const Register = () => {
       confirmPassword: ''
     },
     onSubmit: async values => {
-      await axios.post('http://localhost:3000/api/auth/register', { username: values.username, email: values.email, password: values.password }).then((res) => {
+      await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/register`, { username: values.username, email: values.email, password: values.password }).then((res) => {
         navigate('/login')
       }).catch((error) => {
         console.log(error);

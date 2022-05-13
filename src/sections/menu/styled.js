@@ -9,3 +9,8 @@ export const MenuStyled = styled.div`
   width: 100%;
   height: 100vh;
 `;
+
+export const MenuItems = styled.div`
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+`;

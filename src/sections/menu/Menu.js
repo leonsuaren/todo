@@ -1,8 +1,12 @@
 import React from 'react';
-import { MenuStyled } from './styled';
+import { MenuStyled, MenuItems } from './styled';
 
 export const Menu = () => {
   return (
-    <MenuStyled className='menu'>hola</MenuStyled>
+    <MenuStyled className='menu'>
+      <MenuItems>
+        hola
+      </MenuItems>
+    </MenuStyled>
   )
 };

@@ -14,7 +14,7 @@ export const Login = () => {
       password: ''
     }, 
     onSubmit: async values => {
-      await axios.post('http://localhost:3000/api/auth/login', { email: values.email, password: values.password }).then((res) => {
+      await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }).then((res) => {
         localStorage.setItem('username', res.data.user.username);
         localStorage.setItem('email', res.data.user.email);
         navigate('/');
