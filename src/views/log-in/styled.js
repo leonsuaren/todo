@@ -53,3 +53,13 @@ export const LoginTitle = styled.h1`
   color: #60605d;
   font-size: 2.5rem;
 `;
+
+export const AlertsContainer = styled.div`
+  width: 700px;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+`;

@@ -4,12 +4,15 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import axios from 'axios';
 
-import { LoginWrapper, FormWrapper, InputStyled, Button, LoginTitle } from './styled';
+import { LoginWrapper, FormWrapper, InputStyled, Button, LoginTitle, AlertsContainer } from './styled';
 
 export const Login = () => {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [alerMessage, setAlertMessage] = useState('');
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -21,26 +24,20 @@ export const Login = () => {
           "Content-Type": "application/json",
         },
       };
-      // await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }).then((res) => {
-      //   localStorage.setItem('username', res.data.user.username);
-      //   localStorage.setItem('email', res.data.user.email);
-      //   navigate('/');
-      //   console.log(res)
-      // }).catch((error) => {
-      //   console.log(error);
-      // })
-      try {
-        const { data } = await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }, config)
-        localStorage.setItem('username', data.user.username);
-        localStorage.setItem('email', data.user.email);
-        setLoading(true);
+      await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }, config).then((res) => {
+        localStorage.setItem('username', res.data.user.username);
+        localStorage.setItem('email', res.data.user.email);
         setTimeout(() => {
+          setLoading(true);
           navigate('/');
         }, 3000);
-        console.log(data)
-      } catch (error) {
-        console.log(error);
-      }
+      }).catch((error) => {
+        setError(error.response.data.error);
+        setAlertMessage(error.response.data.message);
+        setTimeout(() => {
+          setError(false);
+        }, 3000);
+      })
     }
   });
 
@@ -64,6 +61,15 @@ export const Login = () => {
         </FormWrapper>
         <Link to='/register'>Register</Link>
       </LoginWrapper>
+      <AlertsContainer>
+        {
+          error ?
+            <div class="alert alert-danger" role="alert">
+              {alerMessage}
+            </div>
+            : ''
+        }
+      </AlertsContainer>
     </div>
   )
 }
