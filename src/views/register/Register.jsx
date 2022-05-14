@@ -1,10 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { useFormik } from 'formik';
 import axios from 'axios';
 
-import { RegisterWrapper } from './styled';
+import { RegisterWrapper, FormWrapper, InputStyled, RegisterTitle, Button } from './styled';
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -25,28 +25,16 @@ export const Register = () => {
     }
   });
 
-  return(
+  return (
     <RegisterWrapper>
-      <h2>Register</h2>
-      <form onSubmit={formik.handleSubmit}>
-        <label>
-          Email:
-          <input type='email' value={formik.values.email} placeholder='Email' name='email' onChange={formik.handleChange} />
-        </label>
-        <label>
-          Username:
-          <input type='text' value={formik.values.username} placeholder='Username' name='username' onChange={formik.handleChange} />
-        </label>
-        <label>
-          Password:
-          <input type='password' value={formik.values.password} placeholder='Password' name='password' onChange={formik.handleChange} />
-        </label>
-        <label>
-          Confirm Password:
-          <input type='password' value={formik.values.confirmPassword} placeholder='Confirm Password' name='confirmPassword' onChange={formik.handleChange} />
-        </label>
-        <button type='submit'>Confirm</button>
-      </form>
+      <RegisterTitle>Register</RegisterTitle>
+      <FormWrapper onSubmit={formik.handleSubmit}>
+        <InputStyled type='email' value={formik.values.email} placeholder='Email' name='email' onChange={formik.handleChange} />
+        <InputStyled type='text' value={formik.values.username} placeholder='Username' name='username' onChange={formik.handleChange} />
+        <InputStyled type='password' value={formik.values.password} placeholder='Password' name='password' onChange={formik.handleChange} />
+        <InputStyled type='password' value={formik.values.confirmPassword} placeholder='Confirm Password' name='confirmPassword' onChange={formik.handleChange} />
+        <Button type='submit'>Register</Button>
+      </FormWrapper>
     </RegisterWrapper>
   )
 }

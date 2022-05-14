@@ -1,10 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { useFormik } from 'formik';
 import axios from 'axios';
 
-import { LoginWrapper } from './styled';
+import { LoginWrapper, FormWrapper, InputStyled, Button, LoginTitle } from './styled';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -12,13 +12,13 @@ export const Login = () => {
     initialValues: {
       email: '',
       password: ''
-    }, 
+    },
     onSubmit: async values => {
       const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
       // await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }).then((res) => {
       //   localStorage.setItem('username', res.data.user.username);
       //   localStorage.setItem('email', res.data.user.email);
@@ -29,10 +29,10 @@ export const Login = () => {
       // })
       try {
         const { data } = await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }, config)
-       localStorage.setItem('username', data.user.username);
-       localStorage.setItem('email', data.user.email);
-       navigate('/');
-       console.log(data)
+        localStorage.setItem('username', data.user.username);
+        localStorage.setItem('email', data.user.email);
+        navigate('/');
+        console.log(data)
       } catch (error) {
         console.log(error);
       }
@@ -42,18 +42,13 @@ export const Login = () => {
 
   return (
     <LoginWrapper>
-      <h2>Log In</h2>
-      <form onSubmit={formik.handleSubmit}>
-        <label>
-          Email:
-        <input type='email' value={formik.values.email} placeholder='Email' name='email' onChange={formik.handleChange} />
-        </label>
-        <label>
-          Password:
-        <input type='password' value={formik.values.password} placeholder='Password' name='password' onChange={formik.handleChange} />
-        </label>
-        <button type='submit'>Confirm</button>
-      </form>
+      <LoginTitle>Log In</LoginTitle>
+      <FormWrapper onSubmit={formik.handleSubmit}>
+        <InputStyled type='email' value={formik.values.email} placeholder='Email' name='email' onChange={formik.handleChange} />
+        <InputStyled type='password' value={formik.values.password} placeholder='Password' name='password' onChange={formik.handleChange} />
+        <Button type='submit'>LOGIN</Button>
+      </FormWrapper>
+      <Link to='/register'>Register</Link>
     </LoginWrapper>
   )
 }
