@@ -33,8 +33,8 @@ export const InputStyled = styled.input`
   border-right: none;
   border-left: none;
   border-top: none;
-  border-bottom-color: #095fd6;
-  color: #60605d;
+  border-bottom-color: ${p => p.disabled ? '#CCCCCC' : '#095fd6'};
+  color: ${p => p.disabled ? '#CCCCCC' : '#60605d'};
 `;
 
 export const Button = styled.button`
@@ -42,7 +42,7 @@ export const Button = styled.button`
   height: 50px;
   font-size: 1.2rem;
   color: white;
-  background-color: #095fd6;
+  background-color: ${p => p.disabled ? '#CCCCCC' : '#095fd6'};
   border-radius: 5px;
   border: none;
   box-shadow: 2px 2px 2px #CCCCCC;
@@ -55,11 +55,15 @@ export const LoginTitle = styled.h1`
 `;
 
 export const AlertsContainer = styled.div`
-  width: 700px;
+  width: 100%;
   position: absolute;
   left: 50%;
   top: 10%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
+`;
+
+export const AlertWidth = styled.div`
+  width: 500px;
 `;
