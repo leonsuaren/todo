@@ -14,13 +14,28 @@ export const Login = () => {
       password: ''
     }, 
     onSubmit: async values => {
-      await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }).then((res) => {
-        localStorage.setItem('username', res.data.user.username);
-        localStorage.setItem('email', res.data.user.email);
-        navigate('/');
-      }).catch((error) => {
+      const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+      // await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }).then((res) => {
+      //   localStorage.setItem('username', res.data.user.username);
+      //   localStorage.setItem('email', res.data.user.email);
+      //   navigate('/');
+      //   console.log(res)
+      // }).catch((error) => {
+      //   console.log(error);
+      // })
+      try {
+        const { data } = await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }, config)
+       localStorage.setItem('username', data.user.username);
+       localStorage.setItem('email', data.user.email);
+       navigate('/');
+       console.log(data)
+      } catch (error) {
         console.log(error);
-      })
+      }
     }
   });
 
