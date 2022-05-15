@@ -18,3 +18,18 @@ export const TodoCard = styled.div`
   padding: 0;
   box-shadow: 5px 5px 5px 5px #CCCCCC;
 `;
+
+export const EmptyTodoListItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  width: 800px;
+  height: 70px;
+  margin: 0;
+  padding: 0;
+  background-color: 'white';
+`;
+
+export const WelcomeTitle = styled.h1`
+  color: #87cda7;
+`;

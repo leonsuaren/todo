@@ -6,7 +6,7 @@ import anime from 'animejs';
 import { ListItem } from '../../components/list-item';
 import { ListForm } from '../../components/list-form';
 
-import { ListTodoStyled, TodoCard } from './styled';
+import { ListTodoStyled, TodoCard, EmptyTodoListItem, WelcomeTitle } from './styled';
 
 export const ListTodo = ({children}) => {
   const [ todoList, setTodoList ] = useState([]);
@@ -50,6 +50,9 @@ export const ListTodo = ({children}) => {
   return(
     <ListTodoStyled>
       <ListForm addTodo={handleOnAddTodo}/>
+      {
+        todoList.length <= 0 && <EmptyTodoListItem><WelcomeTitle>Welcome to Todo App, start adding todos!!</WelcomeTitle></EmptyTodoListItem>
+      }
       <TodoCard >
           {
             todoList.map((item, key) => {

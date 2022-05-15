@@ -33,7 +33,7 @@ export const InputStyled = styled.input`
   border-right: none;
   border-left: none;
   border-top: none;
-  border-bottom-color: #095fd6;
+  border-bottom-color: ${p => p.disabled ? '#CCCCCC' : '#095fd6'};
   color: #60605d;
 `;
 
@@ -42,7 +42,7 @@ export const Button = styled.button`
   height: 50px;
   font-size: 1.2rem;
   color: white;
-  background-color: #095fd6;
+  background-color: ${p => p.disabled ? '#CCCCCC' : '#095fd6'};
   border-radius: 5px;
   border: none;
   box-shadow: 2px 2px 2px #CCCCCC;
@@ -52,4 +52,18 @@ export const Button = styled.button`
 export const RegisterTitle = styled.h1`
   color: #60605d;
   font-size: 2.5rem;
+`;
+
+export const AlertsContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+`;
+
+export const AlertWidth = styled.div`
+  width: 500px;
 `;
