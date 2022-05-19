@@ -29,7 +29,6 @@ export const Login = () => {
       await axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/auth/login`, { email: values.email, password: values.password }, config).then((res) => {
         localStorage.setItem('username', res.data.user.username);
         localStorage.setItem('email', res.data.user.email);
-        console.log(res);
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
