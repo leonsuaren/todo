@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { MenuStyled, MenuItems, User, LogOutButton } from './styled';
+import { MenuStyled, MenuHeader, MenuItems, AddTodoPlus, Brand, LogOutButton, LogOutButtonWrapper } from './styled';
 
 export const Menu = () => {
   const navigate = useNavigate();
@@ -15,10 +15,15 @@ export const Menu = () => {
 
   return (
     <MenuStyled>
-      <User>{username}</User>
-      <LogOutButton onClick={handleOnLogout}>Logout</LogOutButton>
+      <MenuHeader>
+        <Brand>ToDo App</Brand>
+      </MenuHeader>
       <MenuItems>
+        <AddTodoPlus>+</AddTodoPlus>
       </MenuItems>
+      <LogOutButtonWrapper>
+        <LogOutButton onClick={handleOnLogout}>Logout</LogOutButton>
+      </LogOutButtonWrapper>
     </MenuStyled>
   )
 };
