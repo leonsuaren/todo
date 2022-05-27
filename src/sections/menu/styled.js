@@ -69,6 +69,7 @@ export const AddTodoMinus = styled.button`
   font-size: 3rem;
   border: none;
   cursor: pointer;
+  opacity: 0;
   &:hover {
     background-color: #242526;
   }
