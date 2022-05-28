@@ -6,7 +6,7 @@ import { AiOutlineMinus } from 'react-icons/ai'
 export const MenuStyled = styled.div`
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 10% 80% 10%;
+  grid-template-rows: 10% 40% 40% 10%;
   margin: 0;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,7 @@ export const Brand = styled.h3`
 export const MenuItems = styled.div`
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 10% 40% 10%;
+  grid-template-rows: 10% 80% 10%;
   justify-items: center;
   align-items: center;
   width: 100%; 
@@ -142,7 +142,6 @@ export const TodoCategory = styled.button`
   height: 30px;
   border-radius: ${p => p.showCategory ? '5px' : '50%'};
   color: #FFFFFF;
-  font-size: 3rem;
   border: none;
   cursor: pointer;
   opacity: 0;
@@ -172,4 +171,22 @@ export const LogOutButton = styled.button`
   &:hover {
     background-color: #F46161;
   }
+`;
+
+export const SearchTodos = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SerarchTodoButtons = styled.div`
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 100%;
+  height: 80%;
+  width: 100%;
+`;
+
+export const SortButtonComponent = styled.button`
+
 `;
