@@ -187,6 +187,40 @@ export const SerarchTodoButtons = styled.div`
   width: 100%;
 `;
 
-export const SortButtonComponent = styled.button`
+const SortButton = ({category}) => {
+  if (category === 'done') {
+    return css`
+      background-color: #07c45c;
+    `
+  }
+  if (category === 'inProccess') {
+    return css`
+    background-color: #4493e2;
+    `
+  }
+  if (category === 'stuck') {
+    return css`
+    background-color: #e3435c;
+    `
+  }
+  if (category === 'higth') {
+    return css`
+    background-color: #c8dd06;
+    `
+  }
+  if (category === 'less') {
+    return css`
+    background-color: #6271e9;
+    `
+  }
+}
 
+export const SortButtonComponent = styled.button`
+  ${SortButton}
+  width: 100%;
+  height: 50px;
+  margin: 2px;
+  border: none;
+  color: #FFFFFF;
+  font-weight: bold;
 `;

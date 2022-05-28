@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import anime from 'animejs';
 import { categoryButtonsAnimation, minusButtonAnimation, addPlusButtonAnimation, categoryButtonsAnimationOut, minusButtonAnimationOut, addPlusButtonAnimationOut } from './amine';
 
-import { MenuStyled, MenuHeader, MenuItems, AddTodoPlus, Brand, LogOutButton, LogOutButtonWrapper, AiOutlinePlusStyled, AiOutlineMinusStyled, 
-  TodoCategory, CategoryWrapper, AddTodoMinus, SearchTodos, SerarchTodoButtons, SortButtonComponent } from './styled';
+import {
+  MenuStyled, MenuHeader, MenuItems, AddTodoPlus, Brand, LogOutButton, LogOutButtonWrapper, AiOutlinePlusStyled, AiOutlineMinusStyled,
+  TodoCategory, CategoryWrapper, AddTodoMinus, SearchTodos, SerarchTodoButtons, SortButtonComponent
+} from './styled';
 
 const Category = ({ category, index, children, ...props }) => {
-  const [showCategory, setShowCategory] = useState(false); 
+  const [showCategory, setShowCategory] = useState(false);
 
   const handleOnMouseEnter = (index) => {
     setShowCategory(true);
@@ -25,16 +27,16 @@ const Category = ({ category, index, children, ...props }) => {
 
 
   return (
-    <TodoCategory showCategory={showCategory} {...props} category={category} index={index} 
-    onMouseEnter={() => handleOnMouseEnter(index)}
-    onMouseLeave={() => handleOnMouseLeave(index)}
+    <TodoCategory showCategory={showCategory} {...props} category={category} index={index}
+      onMouseEnter={() => handleOnMouseEnter(index)}
+      onMouseLeave={() => handleOnMouseLeave(index)}
     >{showCategory ? <span className='category-text-animation'>{children}</span> : ''}</TodoCategory>
   )
 }
 
-const SortButton = () => {
+const SortButton = ({ category, index, children, ...props }) => {
   return (
-    <SortButtonComponent></SortButtonComponent>
+    <SortButtonComponent category={category}>{children}</SortButtonComponent>
   )
 }
 
@@ -85,19 +87,19 @@ export const Menu = () => {
           <Category className='category-animation' category={'shop'} index={6}>shop</Category>
           <Category className='category-animation' category={'followup'} index={7}>follow up</Category>
         </CategoryWrapper>
-        <AddTodoMinus 
-        className='minus-button-animation' 
-        onMouseEnter={() => setMouseEnter(true)}
-        onMouseLeave={() => setMouseEnter(false)}
-        onClick={handleOnMinusTodo}><AiOutlineMinusStyled mouseenter={mouseEnter}/></AddTodoMinus>
+        <AddTodoMinus
+          className='minus-button-animation'
+          onMouseEnter={() => setMouseEnter(true)}
+          onMouseLeave={() => setMouseEnter(false)}
+          onClick={handleOnMinusTodo}><AiOutlineMinusStyled mouseenter={mouseEnter} /></AddTodoMinus>
       </MenuItems>
       <SearchTodos>
         <SerarchTodoButtons>
-          <SortButtonComponent>hola</SortButtonComponent>
-          <SortButtonComponent>hola</SortButtonComponent>
-          <SortButtonComponent>hola</SortButtonComponent>
-          <SortButtonComponent>hola</SortButtonComponent>
-          <SortButtonComponent>hola</SortButtonComponent>
+          <SortButtonComponent category={'inProccess'}>IN PROCCESS</SortButtonComponent>
+          <SortButtonComponent category={'higth'}>HIGTH PRIORITY</SortButtonComponent>
+          <SortButtonComponent category={'stuck'}>STUCK</SortButtonComponent>
+          <SortButtonComponent category={'less'}>CAN WAIT</SortButtonComponent>
+          <SortButtonComponent category={'done'}>DONE</SortButtonComponent>
         </SerarchTodoButtons>
       </SearchTodos>
       <LogOutButtonWrapper>
