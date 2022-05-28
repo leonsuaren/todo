@@ -6,9 +6,22 @@ import { categoryButtonsAnimation, minusButtonAnimation, addPlusButtonAnimation,
 
 import { MenuStyled, MenuHeader, MenuItems, AddTodoPlus, Brand, LogOutButton, LogOutButtonWrapper, AiOutlinePlusStyled, AiOutlineMinusStyled, TodoCategory, CategoryWrapper, AddTodoMinus } from './styled';
 
-const Category = ({ category, ...props }) => {
+const Category = ({ category, index, ...props }) => {
+  const [showCategory, setShowCategory] = useState(false); 
+
+  const handleOnMouseEnter = (index) => {
+    setShowCategory(true);
+  };
+
+  const handleOnMouseLeave = (index) => {
+    setShowCategory(false);
+  }
+
   return (
-    <TodoCategory {...props} category={category} />
+    <TodoCategory showCategory={showCategory} {...props} category={category} index={index} 
+    onMouseEnter={() => handleOnMouseEnter(index)}
+    onMouseLeave={() => handleOnMouseLeave(index)}
+    />
   )
 }
 
@@ -51,13 +64,13 @@ export const Menu = () => {
           <AiOutlinePlusStyled mouseenter={mouseEnter} />
         </AddTodoPlus>
         <CategoryWrapper>
-          <Category className='category-animation' category={'home'} />
-          <Category className='category-animation' category={'work'} />
-          <Category className='category-animation' category={'school'} />
-          <Category className='category-animation' category={'read'} />
-          <Category className='category-animation' category={'weekend'} />
-          <Category className='category-animation' category={'shop'} />
-          <Category className='category-animation' category={'followup'} />
+          <Category className='category-animation' category={'home'} index={1}/>
+          <Category className='category-animation' category={'work'} index={2}/>
+          <Category className='category-animation' category={'school'} index={3}/>
+          <Category className='category-animation' category={'read'} index={4}/>
+          <Category className='category-animation' category={'weekend'} index={5}/>
+          <Category className='category-animation' category={'shop'} index={6}/>
+          <Category className='category-animation' category={'followup'} index={7}/>
         </CategoryWrapper>
         <AddTodoMinus className='minus-button-animation' onClick={handleOnMinusTodo}><AiOutlineMinusStyled /></AddTodoMinus>
       </MenuItems>

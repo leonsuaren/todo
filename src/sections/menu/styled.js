@@ -138,14 +138,15 @@ export const TodoCategory = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
+  width: ${p => p.showCategory ? 80 : 30}px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: ${p => p.showCategory ? '5px' : '50%'};
   color: #FFFFFF;
   font-size: 3rem;
   border: none;
   cursor: pointer;
   opacity: 0;
+  transition: 500ms;
 `;
 
 export const LogOutButtonWrapper = styled.div`
