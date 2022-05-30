@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const ListTodoStyled = styled.div`
   display: grid;
-  grid-template-rows: 10% 90%;
-  margin: 50px 0;
-  justify-content: center;
-  align-items: center;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-area: listTodo;
+  align-items: center;
+  justify-items: center;
   width: 100%;
   height: 100%;
 `;
