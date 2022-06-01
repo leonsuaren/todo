@@ -6,7 +6,7 @@ import anime from 'animejs';
 import { ListItem } from '../../components/list-item';
 import { ListForm } from '../../components/list-form';
 
-import { ListTodoStyled, TodoCard, EmptyTodoListItem, WelcomeTitle } from './styled';
+import { ListTodoStyled } from './styled';
 
 export const ListTodo = ({ children }) => {
   const [todoList, setTodoList] = useState([]);

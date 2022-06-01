@@ -9,7 +9,6 @@ export const ListItem = ({ children, title, description, category, status, delet
   return (
     <div>
       {
-
        status === 'done' ? <DeleteTodoButton {...props}><MdOutlineCloseStyled/></DeleteTodoButton> : ''
       }
       <ListItemWrapper {...props}>
