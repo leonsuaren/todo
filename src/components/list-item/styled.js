@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { AiOutlineDelete } from 'react-icons/ai'
+import { MdOutlineClose } from "react-icons/md";
 
 export const ListItemWrapper = styled.div`
   display: grid;
@@ -30,20 +30,24 @@ export const OptionSection = styled.div`
   align-items: center;
 `;
 
-export const DeleteTodoButton = styled.button`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
+export const MdOutlineCloseStyled = styled(MdOutlineClose)`
+  align-self: center;
+  color: #FFFFFF;
+  font-size: 1.7rem;
+  font-weight: bold;
 `;
 
-export const AiOutlineDeleteStyled = styled(AiOutlineDelete)`
-  font-size: 1.4rem;
-  &:hover {
-    font-size: 2rem;
-  }
-  color: #ff0100;
+export const DeleteTodoButton = styled.button`
+  background-color: red;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  top: 20px;
+  left: -10px;
+  pad: 0;
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -53,9 +57,6 @@ export const DescriptionWrapper = styled.div`
   margin: 15px;
   justify-content: flex-start;
   align-items: flex-start;
-`;
-
-export const Span = styled.span`
 `;
 
 const ButtonStyle = () => {
