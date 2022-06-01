@@ -95,11 +95,11 @@ export const Menu = () => {
       </MenuItems>
       <SearchTodos>
         <SerarchTodoButtons>
-          <SortButtonComponent category={'inProccess'}>IN PROCCESS</SortButtonComponent>
-          <SortButtonComponent category={'higth'}>HIGTH PRIORITY</SortButtonComponent>
-          <SortButtonComponent category={'stuck'}>STUCK</SortButtonComponent>
-          <SortButtonComponent category={'less'}>CAN WAIT</SortButtonComponent>
-          <SortButtonComponent category={'done'}>DONE</SortButtonComponent>
+          <SortButtonComponent status={'inProccess'}>IN PROCCESS</SortButtonComponent>
+          <SortButtonComponent status={'higth'}>HIGTH PRIORITY</SortButtonComponent>
+          <SortButtonComponent status={'stuck'}>STUCK</SortButtonComponent>
+          <SortButtonComponent status={'less'}>CAN WAIT</SortButtonComponent>
+          <SortButtonComponent status={'done'}>DONE</SortButtonComponent>
         </SerarchTodoButtons>
       </SearchTodos>
       <LogOutButtonWrapper>

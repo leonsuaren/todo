@@ -187,28 +187,28 @@ export const SerarchTodoButtons = styled.div`
   width: 100%;
 `;
 
-const SortButton = ({category}) => {
-  if (category === 'done') {
+const SortButton = ({status}) => {
+  if (status === 'done') {
     return css`
       background-color: #07c45c;
     `
   }
-  if (category === 'inProccess') {
+  if (status === 'inProccess') {
     return css`
     background-color: #4493e2;
     `
   }
-  if (category === 'stuck') {
+  if (status === 'stuck') {
     return css`
     background-color: #e3435c;
     `
   }
-  if (category === 'higth') {
+  if (status === 'higth') {
     return css`
     background-color: #c8dd06;
     `
   }
-  if (category === 'less') {
+  if (status === 'less') {
     return css`
     background-color: #6271e9;
     `

@@ -12,13 +12,13 @@ export const TodoHeader = () => {
   return (
     <TodoHeaderWrapper>
       <CategoryLabelsWrapper>
-        <CategoryLabelButton className='category-animation' category={'home'} index={1}>Home</CategoryLabelButton>
-        <CategoryLabelButton className='category-animation' category={'work'} index={2}>Work</CategoryLabelButton>
-        <CategoryLabelButton className='category-animation' category={'school'} index={3}>School</CategoryLabelButton>
-        <CategoryLabelButton className='category-animation' category={'read'} index={4}>Read</CategoryLabelButton>
-        <CategoryLabelButton className='category-animation' category={'weekend'} index={5}>Weekend</CategoryLabelButton>
-        <CategoryLabelButton className='category-animation' category={'shop'} index={6}>Shop</CategoryLabelButton>
-        <CategoryLabelButton className='category-animation' category={'followup'} index={7}>Follow Up</CategoryLabelButton>
+        <CategoryLabelButton className='category-button-animation' category={'home'} index={1}>Home</CategoryLabelButton>
+        <CategoryLabelButton className='category-button-animation' category={'work'} index={2}>Work</CategoryLabelButton>
+        <CategoryLabelButton className='category-button-animation' category={'school'} index={3}>School</CategoryLabelButton>
+        <CategoryLabelButton className='category-button-animation' category={'read'} index={4}>Read</CategoryLabelButton>
+        <CategoryLabelButton className='category-button-animation' category={'weekend'} index={5}>Weekend</CategoryLabelButton>
+        <CategoryLabelButton className='category-button-animation' category={'shop'} index={6}>Shop</CategoryLabelButton>
+        <CategoryLabelButton className='category-button-animation' category={'followup'} index={7}>Follow Up</CategoryLabelButton>
       </CategoryLabelsWrapper>
       <div>
         <MyDayTitle>

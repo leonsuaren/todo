@@ -5,22 +5,22 @@ import Checkbox from '@mui/material/Checkbox';
 
 import { ListItemWrapper, DeleteTodoButton, AiOutlineDeleteStyled, DescriptionWrapper, Span, Header, OptionSection } from './styled';
 
-export const ListItem = ({ children, active, complited, deleteTodoItem, ...props }) => {
-  const [isActive, setIsActive] = useState(active);
+export const ListItem = ({ children, title, description, category, status, deleteTodoItem, ...props }) => {
+  // const [isActive, setIsActive] = useState(active);
 
-  const handleIsActive = () => {
-    setIsActive(s => !s);
-  }
+  // const handleIsActive = () => {
+  //   setIsActive(s => !s);
+  // }
 
   return (
-    <ListItemWrapper active={isActive} {...props}>
+    <ListItemWrapper {...props}>
       <Header>
-        <h6>go to the bank</h6>
+        <h6>{title}</h6>
       </Header>
-      <DescriptionWrapper>hola</DescriptionWrapper>
+      <DescriptionWrapper>{description}</DescriptionWrapper>
       <OptionSection>
-        <button>hola</button>
-        <button>hola</button>
+        <button>{category}</button>
+        <button>{status}</button>
       </OptionSection>
     </ListItemWrapper>
   )

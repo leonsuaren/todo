@@ -49,17 +49,19 @@ export const ListTodo = ({children}) => {
 
   return(
     <ListTodoStyled>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
+      {
+        todoList.map((todo, key) => {
+          return (
+            <ListItem 
+            key={key}
+            title={todo.title}
+            description={todo.description}
+            category={todo.category}
+            status={todo.status}
+            />
+          )
+        })
+      }
     </ListTodoStyled>
     )
   }

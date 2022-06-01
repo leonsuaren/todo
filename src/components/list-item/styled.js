@@ -57,5 +57,4 @@ export const DescriptionWrapper = styled.div`
 `;
 
 export const Span = styled.span`
-  text-decoration: ${p => p.complited ? 'line-through' : ''};
 `;
