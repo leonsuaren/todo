@@ -193,9 +193,9 @@ const SortButton = ({status}) => {
       background-color: #07c45c;
     `
   }
-  if (status === 'inProccess') {
+  if (status === 'inProcess') {
     return css`
-    background-color: #4493e2;
+    background-color: #94c2f7;
     `
   }
   if (status === 'stuck') {
@@ -210,7 +210,7 @@ const SortButton = ({status}) => {
   }
   if (status === 'less') {
     return css`
-    background-color: #6271e9;
+    background-color: #4d5060;
     `
   }
 }

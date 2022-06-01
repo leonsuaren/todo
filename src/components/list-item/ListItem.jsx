@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Checkbox from '@mui/material/Checkbox';
 
-import { ListItemWrapper, DeleteTodoButton, AiOutlineDeleteStyled, DescriptionWrapper, Span, Header, OptionSection } from './styled';
+import { ListItemWrapper, DeleteTodoButton, AiOutlineDeleteStyled, DescriptionWrapper, Span, Header, OptionSection, CategotyButton, StatusButton } from './styled';
 
 export const ListItem = ({ children, title, description, category, status, deleteTodoItem, ...props }) => {
   // const [isActive, setIsActive] = useState(active);
@@ -19,8 +19,8 @@ export const ListItem = ({ children, title, description, category, status, delet
       </Header>
       <DescriptionWrapper>{description}</DescriptionWrapper>
       <OptionSection>
-        <button>{category}</button>
-        <button>{status}</button>
+        <CategotyButton category={category}>{category}</CategotyButton>
+        <StatusButton status={status}>{status}</StatusButton>
       </OptionSection>
     </ListItemWrapper>
   )

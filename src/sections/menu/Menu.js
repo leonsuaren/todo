@@ -95,7 +95,7 @@ export const Menu = () => {
       </MenuItems>
       <SearchTodos>
         <SerarchTodoButtons>
-          <SortButtonComponent status={'inProccess'}>IN PROCCESS</SortButtonComponent>
+          <SortButtonComponent status={'inProcess'}>IN PROCCESS</SortButtonComponent>
           <SortButtonComponent status={'higth'}>HIGTH PRIORITY</SortButtonComponent>
           <SortButtonComponent status={'stuck'}>STUCK</SortButtonComponent>
           <SortButtonComponent status={'less'}>CAN WAIT</SortButtonComponent>

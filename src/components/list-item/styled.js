@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { AiOutlineDelete } from 'react-icons/ai'
 
 export const ListItemWrapper = styled.div`
@@ -53,8 +53,95 @@ export const DescriptionWrapper = styled.div`
   margin: 15px;
   justify-content: flex-start;
   align-items: flex-start;
-  cursor: pointer;
 `;
 
 export const Span = styled.span`
+`;
+
+const ButtonStyle = () => {
+  return css`
+    width: 100%;
+    border: none;
+    margin: 5px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+  `
+}
+
+const statusButton = ({status}) => {
+  if (status === 'done') {
+    return css`
+      background-color: #07c45c;
+    `
+  }
+  if (status === 'inProcess') {
+    return css`
+    background-color: #94c2f7;
+    `
+  }
+  if (status === 'stuck') {
+    return css`
+    background-color: #e3435c;
+    `
+  }
+  if (status === 'higth') {
+    return css`
+    background-color: #c8dd06;
+    `
+  }
+  if (status === 'less') {
+    return css`
+    background-color: #4d5060;
+    `
+  }
+}
+
+const categoryButton = ({category}) => {
+  if (category === 'home' ) {
+    return css`
+      background-color: #cf6327;
+    `
+  }
+  if (category === 'work') {
+    return css`
+      background-color: #59c49a;
+    `
+  }
+  if (category === 'school') {
+    return css`
+      background-color: #2ca4da;
+    `
+  }
+  if (category === 'shop') {
+    return css`
+      background-color: #6271e9;
+    `
+  }
+  if (category === 'weekend') {
+    return css`
+      background-color: #ef938b;
+    `
+  }
+  if (category === 'read') {
+    return css`
+      background-color: #bde1e5;
+    `
+  }
+  if (category === 'followup') {
+    return css`
+      background-color: #246c9d;
+    `
+  }
+}
+
+export const CategotyButton = styled.div`
+  ${ButtonStyle}
+  ${categoryButton}
+`;
+
+export const StatusButton = styled.div`
+  ${ButtonStyle}
+  ${statusButton}
 `;
