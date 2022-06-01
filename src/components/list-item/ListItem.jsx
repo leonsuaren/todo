@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
 
-import Typography from '@mui/material/Typography';
-import Checkbox from '@mui/material/Checkbox';
+import axios from 'axios';
 
 import { ListItemWrapper, DeleteTodoButton, DescriptionWrapper, Header, OptionSection, CategotyButton, StatusButton, MdOutlineCloseStyled } from './styled';
 
 export const ListItem = ({ children, title, description, category, status, deleteTodoItem, ...props }) => {
-  // const [isActive, setIsActive] = useState(active);
-
-  // const handleIsActive = () => {
-  //   setIsActive(s => !s);
-  // }
 
   return (
     <div>
       {
 
-       status === 'done' ? <DeleteTodoButton><MdOutlineCloseStyled/></DeleteTodoButton> : ''
+       status === 'done' ? <DeleteTodoButton {...props}><MdOutlineCloseStyled/></DeleteTodoButton> : ''
       }
       <ListItemWrapper {...props}>
         <Header>

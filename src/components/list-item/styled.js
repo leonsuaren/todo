@@ -47,7 +47,7 @@ export const DeleteTodoButton = styled.button`
   position: relative;
   top: 20px;
   left: -10px;
-  pad: 0;
+  padding: 0;
 `;
 
 export const DescriptionWrapper = styled.div`
