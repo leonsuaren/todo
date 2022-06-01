@@ -60,8 +60,8 @@ export const Register = () => {
           <Button type='submit' disabled={disabled}>
             {
               loading ?
-                <div class="spinner-border text-light" role="status">
-                  <span class="visually-hidden">Loading...</span>
+                <div className="spinner-border text-light" role="status">
+                  <span className="visually-hidden">Loading...</span>
                 </div>
                 : <span>Register</span>
             }
@@ -73,7 +73,7 @@ export const Register = () => {
         {
           error ?
             <AlertWidth>
-              <div class="alert alert-danger" role="alert">
+              <div className="alert alert-danger" role="alert">
                 {alerMessage}
               </div>
             </AlertWidth>
@@ -82,7 +82,7 @@ export const Register = () => {
         {
           success ?
             <AlertWidth>
-              <div class="alert alert-success" role="alert">
+              <div className="alert alert-success" role="alert">
                 {alerMessage}
               </div>
             </AlertWidth>

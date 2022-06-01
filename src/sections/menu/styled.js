@@ -13,7 +13,7 @@ export const MenuStyled = styled.div`
   grid-area: menu;
   width: 100%;
   height: 100vh;
-  border-right: 1px solid #CCCCCC;
+  box-shadow: 2px 2px 2px #CCCCCC;
 `;
 
 export const MenuHeader = styled.div`
