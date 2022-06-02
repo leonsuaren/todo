@@ -4,12 +4,12 @@ import axios from 'axios';
 
 import { ListItemWrapper, DeleteTodoButton, DescriptionWrapper, Header, OptionSection, CategotyButton, StatusButton, MdOutlineCloseStyled } from './styled';
 
-export const ListItem = ({ children, title, description, category, status, deleteTodoItem, ...props }) => {
+export const ListItem = ({ children, title, description, category, status, deleteTodoItem, onClick, ...props }) => {
 
   return (
     <div>
       {
-       status === 'done' ? <DeleteTodoButton {...props}><MdOutlineCloseStyled/></DeleteTodoButton> : ''
+       status === 'done' ? <DeleteTodoButton onClick={onClick} {...props}><MdOutlineCloseStyled/></DeleteTodoButton> : ''
       }
       <ListItemWrapper {...props}>
         <Header>

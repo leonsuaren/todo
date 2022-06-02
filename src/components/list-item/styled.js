@@ -45,6 +45,7 @@ export const DeleteTodoButton = styled.button`
   height: 30px;
   border-radius: 50%;
   position: relative;
+  box-shadow: 2px 2px 2px #CCCCCC;
   top: 20px;
   left: -10px;
   padding: 0;
