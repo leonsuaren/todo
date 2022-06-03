@@ -1,10 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
-
-import axios from 'axios';
-import anime from 'animejs';
+import React, {useContext } from 'react';
 
 import { ListItem } from '../../components/list-item';
-import { ListForm } from '../../components/list-form';
 
 import { ListTodoStyled } from './styled';
 import { ListTodoContext } from './../../context';
