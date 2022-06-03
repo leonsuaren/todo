@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ListTodoContext } from './../../context';
 
 import anime from 'animejs';
 import { categoryButtonsAnimation, minusButtonAnimation, addPlusButtonAnimation, categoryButtonsAnimationOut, minusButtonAnimationOut, addPlusButtonAnimationOut } from './amine';
@@ -41,6 +42,7 @@ const SortButton = ({ category, index, children, ...props }) => {
 }
 
 export const Menu = () => {
+  const listTodoContext = useContext(ListTodoContext);
   const [mouseEnter, setMouseEnter] = useState(false);
   const navigate = useNavigate();
 
@@ -95,11 +97,11 @@ export const Menu = () => {
       </MenuItems>
       <SearchTodos>
         <SerarchTodoButtons>
-          <SortButtonComponent status={'inProcess'}>IN PROCCESS</SortButtonComponent>
-          <SortButtonComponent status={'higth'}>HIGTH PRIORITY</SortButtonComponent>
-          <SortButtonComponent status={'stuck'}>STUCK</SortButtonComponent>
-          <SortButtonComponent status={'less'}>CAN WAIT</SortButtonComponent>
-          <SortButtonComponent status={'done'}>DONE</SortButtonComponent>
+          <SortButtonComponent status={'inProcess'} onClick={() => {listTodoContext.setTodoStatus('inProcess')}}>IN PROCCESS</SortButtonComponent>
+          <SortButtonComponent status={'higth'} onClick={() => {listTodoContext.setTodoStatus('higth')}}>HIGTH PRIORITY</SortButtonComponent>
+          <SortButtonComponent status={'stuck'} onClick={() => {listTodoContext.setTodoStatus('stuck')}} >STUCK</SortButtonComponent>
+          <SortButtonComponent status={'less'} onClick={() => {listTodoContext.setTodoStatus('less')}} >CAN WAIT</SortButtonComponent>
+          <SortButtonComponent status={'done'} onClick={() => {listTodoContext.setTodoStatus('done')}} >DONE</SortButtonComponent>
         </SerarchTodoButtons>
       </SearchTodos>
       <LogOutButtonWrapper>
