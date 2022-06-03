@@ -1,1 +1,1 @@
-export { ProtectRoute } from './ProtectRoute';
+export { ProtectRoute, ProtectLogin } from './ProtectRoute';

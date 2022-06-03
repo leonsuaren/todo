@@ -6,3 +6,10 @@ export const ProtectRoute = ({ children }) => {
   }
   return children ? children : <Outlet />;
 }
+
+export const ProtectLogin = ({ children }) => {
+  if (localStorage.getItem('username')) {
+    return <Navigate to='/' replace />
+  }
+  return children ? children : <Outlet />
+}

@@ -54,16 +54,3 @@ export const ListTodo = ({ children }) => {
     </ListTodoStyled>
   )
 }
-  // <ListForm addTodo={handleOnAddTodo}/>
-  // {
-  //   todoList.length <= 0 && <EmptyTodoListItem><WelcomeTitle>Welcome to Todo App, start adding todos!!</WelcomeTitle></EmptyTodoListItem>
-  // }
-  // <TodoCard >
-  //     {
-  //       todoList.map((item, key) => {
-  //         return (
-  //           <ListItem onClick={() => handleOnActiveTodo(item._id)} active={item.active} key={key} complited={item.complited} _id={item._id} index={key} deleteTodoItem={() => {handleOnDelete(item._id, key)}}>{item.description}</ListItem>
-  //         )
-  //       })
-  //     }
-  // </TodoCard>
