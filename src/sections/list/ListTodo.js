@@ -13,8 +13,8 @@ export const ListTodo = ({ children }) => {
   const email = localStorage.getItem('email');
 
   useEffect(() => {
-    axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/todo/todo-list`, { email }).then((response) => {
-      setTodoList(response.data.todoList);
+    axios.post(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/todo/search-status`, { status: 'inProcess', email: email }).then((response) => {
+      setTodoList(response.data.status);
     }).catch((error) => {
       console.log(error)
     })
@@ -33,18 +33,10 @@ export const ListTodo = ({ children }) => {
     setTodoList(newTodoList);
   }
 
-  const handleOnActiveTodo = async (_id) => {
-    try {
-      const { data } = await axios.put(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/todo/active-todo`, { _id });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   return (
     <ListTodoStyled>
       {
-        todoList.map((todo, key) => {
+        todoList?.map((todo, key) => {
           return (
             <ListItem
               setTodoList={setTodoList}
