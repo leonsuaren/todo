@@ -1,5 +1,7 @@
 import React from 'react';
 
+import axios from 'axios';
+
 import { TodoHeaderWrapper, MyDayTitle, DateTitle, CategoryLabelsWrapper, CategoryLabelButton } from './styled';
 import { DateTime } from 'luxon';
 
@@ -8,11 +10,22 @@ export const TodoHeader = () => {
   const dt = DateTime.now();
   const day = dt.plus({ days: 0 }).toLocaleString(DateTime.DATE_HUGE);
   // console.log(dt.setLocale('en-US').toLocaleString({ month: 'long', day: 'numeric', year: 'numeric' }));
+  const userEmail = localStorage.getItem('email');
+
+  const handleOnFindCategory = async (category) => {
+    console.log(category, userEmail)
+    try {
+      const { data } = await axios.get(`http://localhost:${process.env.REACT_APP_END_POINT_PORT}/api/todo/search-category`, { category, userEmail });
+      console.log(data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <TodoHeaderWrapper>
       <CategoryLabelsWrapper>
-        <CategoryLabelButton className='category-button-animation' category={'home'} index={1}>Home</CategoryLabelButton>
+        <CategoryLabelButton className='category-button-animation' category={'home'} index={1} onClick={() => handleOnFindCategory('home')}>Home</CategoryLabelButton>
         <CategoryLabelButton className='category-button-animation' category={'work'} index={2}>Work</CategoryLabelButton>
         <CategoryLabelButton className='category-button-animation' category={'school'} index={3}>School</CategoryLabelButton>
         <CategoryLabelButton className='category-button-animation' category={'read'} index={4}>Read</CategoryLabelButton>
