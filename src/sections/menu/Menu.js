@@ -97,11 +97,11 @@ export const Menu = () => {
       </MenuItems>
       <SearchTodos>
         <SerarchTodoButtons>
-          <SortButtonComponent status={'inProcess'} onClick={() => {listTodoContext.setTodoStatus('inProcess')}}>IN PROCCESS</SortButtonComponent>
-          <SortButtonComponent status={'higth'} onClick={() => {listTodoContext.setTodoStatus('higth')}}>HIGTH PRIORITY</SortButtonComponent>
-          <SortButtonComponent status={'stuck'} onClick={() => {listTodoContext.setTodoStatus('stuck')}} >STUCK</SortButtonComponent>
-          <SortButtonComponent status={'less'} onClick={() => {listTodoContext.setTodoStatus('less')}} >CAN WAIT</SortButtonComponent>
-          <SortButtonComponent status={'done'} onClick={() => {listTodoContext.setTodoStatus('done')}} >DONE</SortButtonComponent>
+          <SortButtonComponent status={'inProcess'} onClick={() => {listTodoContext.handleOnFindStatus('inProcess')}}>IN PROCCESS</SortButtonComponent>
+          <SortButtonComponent status={'higth'} onClick={() => {listTodoContext.handleOnFindStatus('higth')}}>HIGTH PRIORITY</SortButtonComponent>
+          <SortButtonComponent status={'stuck'} onClick={() => {listTodoContext.handleOnFindStatus('stuck')}} >STUCK</SortButtonComponent>
+          <SortButtonComponent status={'less'} onClick={() => {listTodoContext.handleOnFindStatus('less')}} >CAN WAIT</SortButtonComponent>
+          <SortButtonComponent status={'done'} onClick={() => {listTodoContext.handleOnFindStatus('done')}} >DONE</SortButtonComponent>
         </SerarchTodoButtons>
       </SearchTodos>
       <LogOutButtonWrapper>
