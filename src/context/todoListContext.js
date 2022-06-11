@@ -32,8 +32,6 @@ export const ListTodoProvider = ({ children }) => {
     });
   }
 
-  console.log(listTodo.length);
-
   return (
     <ListTodoContext.Provider value={{ listTodo, setListTodo, handleOnFindCategory, handleOnFindStatus }}>
       {children}
