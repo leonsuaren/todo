@@ -55,7 +55,7 @@ export const Login = () => {
       <LoginWrapper>
         <LoginTitle>Log In</LoginTitle>
         <FormWrapper onSubmit={formik.handleSubmit}>
-          <InputStyled type='email' value={formik.values.email} placeholder='Email' name='email' onChange={formik.handleChange} disabled={disabled} />
+          <InputStyled role='textbox' type='email' arial-label='email' id='email' value={formik.values.email} placeholder='Email' name='email' onChange={formik.handleChange} disabled={disabled} />
           <InputStyled type='password' value={formik.values.password} placeholder='Password' name='password' onChange={formik.handleChange} disabled={disabled} />
           <Button type='submit' disabled={disabled} >
             {
